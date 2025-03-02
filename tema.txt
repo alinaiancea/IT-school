@@ -1,0 +1,237 @@
+tema
+
+1) Avem 2 numere intregi. Sa se afiseze catul si restul impartirii numerelor.
+
+
+a=12
+b=2
+c= a // b
+d= a % b
+print(c)
+print(d)
+
+
+2) Avem 2 numere intregi. Sa se afiseze rezultatele ridicarii la putere a celor doua numere.
+
+a=12
+b=2
+c=a**b
+print(c)
+
+3) Avem 2 numere intregi. Sa se afiseze daca cel de al doilea numar este divizibil cu primul.
+
+a=12
+b=2
+if a % b == 0:
+ print('Este divizibil')
+ else: 
+    print('Nu este divizibil')
+
+4) Avem un numar aleatoriu. Sa se afiseze daca numarul este par sau impar.
+
+
+a = 12
+if a % 2 == 0 : 
+    print('par')
+else:
+    print('impar')
+
+5) Se citeste de la tastatura un numar. Sa se verifice daca numarul se afla in intervalul 100-150.
+
+a = float(input('Introduceti un numar : '))
+if a >= 100 and a =< 150 :
+    print('Numarul se afla in intervalul 100 - 150')
+else : 
+    print('Numarul nu se afla in intervalul 100 - 150')
+
+6) Se citeste un numar de la tastatura. Sa se verifice daca numarul este mai mic decat 50 sau mai mare decat 100.
+
+
+a = float(input('Introduceti un numar : '))
+if a < 50 or a> 100 :
+    print('Numarul este mai mic decat 50 sau mai mare decat 100')
+else : 
+    print('Numarul nu este nici mai mic ca 50 nici mai mare decat 100')
+
+7) Se citesc doua numere de la tastatura. Sa se determine tipul celor doua numere int/float si sa se afiseze rezultatele verificarii.
+
+nr1 = input("Intrudu primul numar: ")
+nr2 = input("Intrudu al doilea numar: ")
+
+if "." in nr1:
+    print(f"Primul numar este 'float'.")
+else:
+    print(f"Primul numar este 'integer'.")
+
+
+if "." in nr2:
+    print(f"Primul numar este 'float'.")
+else:
+    print(f"Al doilea numar este 'integer'.")
+
+8) Se citesc doua numere de la tastatura. Sa se determine care dintre cele doua este mai mare si sa se afiseze un mesaj corespunzator.
+
+a = float(input('Introduceti primul numar : '))
+b = float(input('Introduceti al doilea numar : '))
+
+if a>b :
+    print ('a este mai mare ca si b')
+if b > a :
+    print('b este mai mare ca si a')
+
+9) Se citesc doua string-uri de la tastatura. Sa se determine daca primul string se regaseste in cel de al doilea string.
+a = input('Introduceti primul numar : ')
+b = input('Introduceti al doilea numar : ')
+
+if a in b :
+    print ('primu intra in al doilea')
+
+10) Se da urmatorul string: "Ana are 10 mere si 5 pere.". Sa se extraga cuvantul "pere" din propozitie si sa se afiseze.
+a = "Ana 10 mere si 5 pere "
+
+start = a.find('pere')
+stop = start+len('pere')
+print(x[start:stop])
+print(len('pere'))
+print(start)
+print(stop)
+
+
+11) Se citeste un sir de numere de la tastatura separate prin virgula. Se citeste un numar de la tastatura. Sa se verifice daca numarul face parte din lista.
+
+a = input('Introdu un sir de numere separate prin virgula : ')
+b = input('Introdu un numar de verificare : ')
+
+c = a.split(',')
+print(c)
+if b in c :
+    print('Se regaseste')
+else :
+    print('Nu se regaseste')
+
+
+12) Se citesc doua numere de la tastatura. Sa se determine care dintre cele doua numere este mai mic si daca este un numar par sa se afiseze un mesaj corespunzator.
+
+a = float(input('Introdu un numar : '))
+b = float(input('Introdu al doilea numar : '))
+
+if a < b :
+    print(f'Numarul {a} este mai mic decat numarul {b}')
+elif a > b :
+    print(f'Numarul {b} este mai mic decat numarul {a}')
+
+
+13) Se citeste un numar de la tastatura. Sa se afiseze un mesaj corespunzator in cazul in care numarul este divizibil cu 3 sau cu 5.
+
+a = float(input('Introdu un numar : '))
+
+if a % 3 == 0 or a % 5 == 0 :
+    print('MESAJ CORESPUNZATOR')
+else :
+    print('SA VA FIE RUSINE')
+
+
+14) Se citeste un numar de la tastatura. Sa se afiseze "fizz" daca numarul e divizibil cu 3, sa se afiseze "buzz" daca numarul este divizibil 
+cu 5 si "fizzbuzz" daca numarul este divizibil si cu 3 si cu 5.
+
+a = float(input('Introdu un numar : '))
+
+if a % 3 == 0 :
+    print('FIZZ')
+if a % 5 == 0 :
+    print('BUZZ')
+if a % 3 == 0 and x % 5 == 0 : 
+    print('FIZZBUZZ')
+
+15) Se da urmatorul string: "Nume: Daniel, Prenume: Neamtiu". Sa se extraga numele si prenumele din acest string si sa se afiseze de la tastatura.
+
+a = "Nume: Daniel, Prenume: Neamtiu"
+b = x.split(',')
+print(y[0])
+print(y[1].lstrip(' '))
+
+16) Se da urmatorul string: "mere, pere, mere, mere, pere, struguri". Sa se afiseze de cate ori apare cuvantul "pere" in string.
+
+a = 'mere, pere, mere, mere, pere, struguri'
+print(f'pere se afiseaza de : {a.count("pere")}')
+
+17) Se da urmatorul string: "Ana are 10 mingi de fotbal intergalactic". Sa se stearga cuvantul intergalactic din string si sa se afiseze rezultatul.
+
+a = "Ana are 10 mingi de fotbal intergalactic"
+b = a.replace('intergalactic','')
+print(b)
+
+
+18)Se citeste de la tastatura o parola. Sa se verifice daca parola introdusa are cel putin 10 caractere si nu contine spatiu. 
+Sa se afiseze un mesaj corespunzator pentru fiecare neregula gasita sau mesajul 
+"OK" in cazul in care parola respecta regulile.
+parola = input('Va rugam introduceti o parola : ')
+
+
+ if len(parola) >= 10 and ' ' not in parola:
+
+   print('OK')
+
+
+if len(parola) < 10:
+
+
+ print('Parola nu are 10 caractere')
+
+
+ if ' ' in parola:
+
+
+ print('Parola contine spatii')
+
+Password = input("Introdu parola:")
+
+
+ Lungime_Password = len(Password)
+
+
+Spatiu_Password = Password.find(" ")
+
+
+if Lungime_Password < 10 and (Spatiu_Password != -1 or Spatiu_Password >= 0):
+
+
+ Mesaj = "Parola trebuie sa contina cel putin 10 caractere si sa nu contina spatii!"
+
+ elif Lungime_Password < 10 and Spatiu_Password == -1:
+
+ Mesaj = "Parola trebuie sa contina cel putin 10 caractere!"
+
+
+elif Lungime_Password > 10 and (Spatiu_Password != -1 or Spatiu_Password >= 0):
+
+ Mesaj = "Parola nu trebuie sa contina spatii!"
+
+else:
+ Mesaj = "Ok."
+
+print(Mesaj)
+
+19) Se citeste un numar intreg de la tastatura. Sa se verifice daca numarul este palindrom(ex: 123321, 12321 - are aceeasi valoarea citit si dintr-o parte si din alta) si sa se afiseze un mesaj corespunzator.
+
+
+numar = 123321
+
+numar = str(numar)
+
+if (numar == numar[::-1]):
+
+
+    print("Este polindrom")
+
+else:
+
+   print("Nu este polindrom")
+
+
+
+
+
+	
+
+
