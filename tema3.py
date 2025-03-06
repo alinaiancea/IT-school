@@ -4,14 +4,14 @@
 # Executia programului va inceta in momentul in care utilizatorul introduce cuvantul "exit".
 print('Calculator')
 
-def adunare(arg1,arg2):
-    return arg1 + arg2
-def scadere(arg1,arg2):
-    return arg1 - arg2
-def inmultire(arg1,arg2):
-    return arg1 * arg2
-def impartire(arg1,arg2):
-    return arg1 / arg2
+def adunare(elem1,elem2):
+    return elem1 + elem2
+def scadere(elem1,elem2):
+    return elem1 - elem2
+def inmultire(elem1,elem2):
+    return elem1 * elem2
+def impartire(elem1,elem2):
+    return elem1 / elem2
 
 
 while True:
