@@ -93,4 +93,45 @@ if nume_nou:
     lista_elevi.pop(index)
  print("Elevul a fost șters cu succes!")
   else: 
-  print("Operațiunea de ștergere a fost anulată.") 
+  print("Operațiunea de ștergere a fost anulată.") optiunea_aleasa_de_utilizator == 6: # Afisare elevi in ordinea mediei
+
+        while True:
+            lista_sortata = sorted(lista_catalog, key=functie_sortare_dupa_medie, reverse=True)
+
+            print('Catalogul sortat in functie de media fiecarui elev este : ')
+
+            for element in lista_sortata:
+                print(element)
+        
+            inchidere_previzualiare = input('Doriti inchiderea previzualizarii si iesirea in meniul principal (Da/Nu) : ' ).lower() == 'da'
+            if inchidere_previzualiare:
+                break
+
+    elif optiunea_aleasa_de_utilizator == 7: # Afisare elevi cu media peste 8
+        while True:
+            x = ''
+            for element in lista_catalog:
+                if element['MEDIA'] > 8:
+                    print(element)
+
+            inchidere_previzualiare = input('Doriti inchiderea previzualizarii si iesirea in meniul principal (Da/Nu) : ' ).lower() == 'da'
+            if inchidere_previzualiare:
+                break
+
+    elif optiunea_aleasa_de_utilizator == 8: # Afisare elevi in ordine alfabetica (in functie de Nume)
+
+        while True:
+            lista_sortata = sorted(lista_catalog, key=functie_sortare_dupa_nume, reverse=False)
+
+            print('Catalogul sortat in functie de numele fiecarui elev este : ')
+
+            for element in lista_sortata:
+                print(element)
+        
+            inchidere_previzualiare = input('Doriti inchiderea previzualizarii si iesirea in meniul principal (Da/Nu) : ' ).lower() == 'da'
+            if inchidere_previzualiare:
+                break
+
+    elif optiunea_aleasa_de_utilizator == 9: #Iesire din aplicatie
+        print('La nevedere!')
+        break
