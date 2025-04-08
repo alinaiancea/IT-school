@@ -24,8 +24,11 @@
 #     9) Afisarea angajatilor (dupa senioritate)
 #     10) Afisarea angajatilor (dupa departament)
 #     11) Iesire
-Angajati[
- Angajat = {
+
+# Lista pentru a stoca angajații
+
+angajati[
+ angajat1 = {
   "CNP":2950926360020,
   "Nume": Enache,
   "Prenume": Adina,
@@ -34,7 +37,9 @@ Angajati[
     "Departament":Resurse umane,
     "Senioritate":mid
  }
-Angajat = {
+
+
+angajat2 = {
   "CNP":1801826360109,
   "Nume": Ionescu,
   "Prenume": Andrei,
@@ -44,7 +49,7 @@ Angajat = {
     "Senioritate":senior
  }
 
-Angajat = {
+angajat3 = {
   "CNP":1901826360019,
   "Nume": Popescu,
   "Prenume":Radu,
@@ -54,7 +59,7 @@ Angajat = {
     "Senioritate":mid
  }
 
-Angajat = {
+angajat4 = {
   "CNP":1851826360010,
   "Nume": Antonescu,
   "Prenume": Lucian,
@@ -63,129 +68,144 @@ Angajat = {
     "Departament":Productie,
     "Senioritate":senior
  }
+
  ]
- def adaugare_angajat:
-        cnp = input("Introduceti CNP: 2880926360020")
-        nume = input("Introduceti nume:Turcescu ")
-        prenume = input("Introduceti prenume:Anca ")
-        varsta = int(input("Introduceti varsta:37 "))
-        salar = float(input("Introduceti salar:4.600 "))
-        departament = input("Introduceti departament:Administratie ")
-        senioritate = input("Introduceti senioritate (junior, mid, senior):mid ")
-        angajat = Angajat(cnp, nume, prenume, varsta, salar, departament, senioritate)
-        angajati.append(angajat)
-        print("Angajat adaugat cu succes!")
+ 
+def adaugare_angajat():
+    cnp = input("Introduceti CNP: ")
+    nume = input("Introduceti Nume: ")
+    prenume = input("Introduceti Prenume: ")
+    varsta = int(input("Introduceti Varsta: "))
+    salar = float(input("Introduceti Salar: "))
+    departament = input("Introduceti Departament: ")
+    senioritate = input("Introduceti Senioritate (junior, mid, senior): ")
+    
+    angajat = {
+        "CNP": cnp,
+        "Nume": nume,
+        "Prenume": prenume,
+        "Varsta": varsta,
+        "Salar": salar,
+        "Departament": departament,
+        "Senioritate": senioritate
+    }
+    
+    angajati.append(angajat)
+    print("Angajat adaugat cu succes!")
 
-    def cautare_angajat(cnp):
-        for angajat in angajati:
-            if angajat.cnp == cnp:
-                return angajat
-        return None
+def cautare_angajat():
+    cnp = input("Introduceti CNP-ul angajatului de cautat: ")
+    for angajat in angajati:
+        if angajat["CNP"] == cnp:
+            print(angajat)
+            return
+    print("Angajatul nu a fost gasit.")
 
-    def modificare_angajat(cnp):
-        angajat = cautare_angajat(cnp)
-        if angajat:
-            angajat.nume = input("Introduceti noul nume: ")
-            angajat.prenume = input("Introduceti noul prenume: ")
-            angajat.varsta = int(input("Introduceti noua varsta: "))
-            angajat.salar = float(input("Introduceti noul salar: "))
-            angajat.departament = input("Introduceti noul departament: ")
-            angajat.senioritate = input("Introduceti noua senioritate (junior, mid, senior): ")
-            print("Datele angajatului au fost actualizate!")
-        else:
-            print("Angajatul nu a fost gasit!")
+def modificare_angajat():
+    cnp = input("Introduceti CNP-ul angajatului de modificat: ")
+    for angajat in angajati:
+        if angajat["CNP"] == cnp:
+            angajat["Nume"] = input("Introduceti Nume nou: ")
+            angajat["Prenume"] = input("Introduceti Prenume nou: ")
+            angajat["Varsta"] = int(input("Introduceti Varsta noua: "))
+            angajat["Salar"] = float(input("Introduceti Salar nou: "))
+            angajat["Departament"] = input("Introduceti Departament nou: ")
+            angajat["Senioritate"] = input("Introduceti Senioritate noua (junior, mid, senior): ")
+            print("Datele angajatului au fost modificate.")
+            return
+    print("Angajatul nu a fost gasit.")
 
-    def stergere_angajat(cnp):
-        global angajati
-        angajati = [angajat for angajat in angajati if angajat.cnp != cnp]
-        print("Angajat sters cu succes!")
+def stergere_angajat():
+    cnp = input("Introduceti CNP-ul angajatului de sters: ")
+    for angajat in angajati:
+        if angajat["CNP"] == cnp:
+            angajati.remove(angajat)
+            print("Angajat sters cu succes.")
+            return
+    print("Angajatul nu a fost gasit.")
 
-    def afisare_angajati:
-        for angajat in angajati:
-            print(f"CNP: {angajat.cnp}, Nume: {angajat.nume}, Prenume: {angajat.prenume}, Varsta: {angajat.varsta}, Salar: {angajat.salar}, Departament: {angajat.departament}, Senioritate: {angajat.senioritate}")
+def afisare_angajati():
+    for angajat in angajati:
+        print(angajat)
 
-    def calculator_cost_total_salarii:
-        total = sum(angajat.salar for angajat in angajati)
-        print(f"Cost total salarii: {total}")
+def calculator_cost_total_salari():
+    total = sum(angajat["Salar"] for angajat in angajati)
+    print(f"Cost total salarii: {total}")
 
-    def calculator_cost_total_salarii_departament(departament):
-        total = sum(angajat.salar for angajat in angajati if angajat.departament == departament)
-        print(f"Cost total salarii pentru departamentul {departament}: {total}")
+def calculator_cost_total_salari_departament():
+    departament = input("Introduceti departamentul: ")
+    total = sum(angajat["Salar"] for angajat in angajati if angajat["Departament"] == departament)
+    print(f"Cost total salarii pentru departamentul {departament}: {total}")
 
-    def calculator_fluturas_salar(cnp):
-        angajat = cautare_angajat(cnp)
-        if angajat:
-            brut = angajat.salar
+def calculator_fluturas_salar():
+    cnp = input("Introduceti CNP-ul angajatului: ")
+    for angajat in angajati:
+        if angajat["CNP"] == cnp:
+            brut = angajat["Salar"]
             cas = brut * 0.10
             cass = brut * 0.25
-            impozit = (brut - (cas + cass)) * 0.10
-            net = brut - (cas + cass + impozit)
-            print(f"Fluturas salar pentru {angajat.nume} {angajat.prenume}:")
-            print(f"Salar brut: {brut}, CAS: {cas}, CASS: {cass}, Impozit: {impozit}, Salar net: {net}")
-        else:
-            print("Angajatul nu a fost gasit!")
+            impozit = (brut - cas - cass) * 0.10
+            print(f"Fluturas salar pentru {angajat['Nume']} {angajat['Prenume']}:")
+            print(f"Salar brut: {brut}")
+            print(f"CAS: {cas}")
+            print(f"CASS: {cass}")
+            print(f"Impozit: {impozit}")
+            return
+    print("Angajatul nu a fost gasit.")
 
-    def afisare_angajati_dupa_senioritate:
-        angajati.sort
-        afisare_angajati
+def afisare_angajati_dupa_senioritate():
+    senioritate = input("Introduceti senioritatea (junior, mid, senior): ")
+    for angajat in angajati:
+        if angajat["Senioritate"] == senioritate:
+            print(angajat)
 
-    def afisare_angajati_dupa_departament:
-        angajati.sort
-        afisare_angajati
+def afisare_angajati_dupa_departament():
+    departament = input("Introduceti departamentul: ")
+    for angajat in angajati:
+        if angajat["Departament"] == departament:
+            print(angajat)
 
-    def meniu:
-        while True:
-            print("Meniu:")
-            print("1) Adaugare angajat")
-            print("2) Cautare angajat (dupa CNP)")
-            print("3) Modificare date angajat (dupa CNP)")
-            print("4) Stergere angajat")
-            print("5) Afisare angajati")
-            print("6) Calculator cost total salarii")
-            print("7) Calculator cost total salarii departament")
-            print("8) Calculator fluturas salar angajat")
-            print("9) Afisarea angajatilor (dupa senioritate)")
-            print("10) Afisarea angajatilor (dupa departament)")
-            print("11) Iesire")
-            
-            optiune = input("Alege o optiune: ")
-            
-            if optiune == '1':
-                adaugare_angajat
-            elif optiune == '2':
-                cnp = input("Introduceti CNP: ")
-                angajat = cautare_angajat(cnp)
-                if angajat:
-                    print(f"Angajat gasit: {angajat.nume} {angajat.prenume}")
-                else:
-                    print("Angajatul nu a fost gasit!")
-            elif optiune == '3':
-                cnp = input("Introduceti CNP: ")
-                modificare_angajat(cnp)
-            elif optiune == '4':
-                cnp = input("Introduceti CNP: ")
-                stergere_angajat(cnp)
-            elif optiune == '5':
-                afisare_angajati
-            elif optiune == '6':
-                calculator_cost_total_salarii
-            elif optiune == '7':
-                departament = input("Introduceti departament: ")
-                calculator_cost_total_salarii_departament(departament)
-            elif optiune == '8':
-                cnp = input("Introduceti CNP: ")
-                calculator_fluturas_salar(cnp)
-            elif optiune == '9':
-                afisare_angajati_dupa_senioritate
-            elif optiune == '10':
-                afisare_angajati_dupa_departament
-            elif optiune == '11':
-                print("Iesire din program.")
-                break
-            else:
-                print("Optiune invalida! Te rog sa incerci din nou.")
-
-
-
+def meniu():
+    while True:
+        print("Meniu:")
+        print("1. Adaugare angajat")
+        print("2. Cautare angajat")
+        print("3. Modificare date angajat")
+        print("4. Stergere angajat")
+        print("5. Afisare angajati")
+        print("6. Calculator cost total salarii")
+        print("7. Calculator cost total salarii departament")
+        print("8. Calculator fluturas salar angajat")
+        print("9. Afisarea angajatilor (dupa senioritate)")
+        print("10. Afisarea angajatilor (dupa departament)")
+        print("11. Iesire")
         
- 
+        optiune = input("Alegeti o optiune: ")
+        
+        if optiune == "1":
+            adaugare_angajat()
+        elif optiune == "2":
+            cautare_angajat()
+        elif optiune == "3":
+            modificare_angajat()
+        elif optiune == "4":
+            stergere_angajat()
+        elif optiune == "5":
+            afisare_angajati()
+        elif optiune == "6":
+            calculator_cost_total_salari()
+        elif optiune == "7":
+            calculator_cost_total_salari_departament()
+        elif optiune == "8":
+            calculator_fluturas_salar()
+        elif optiune == "9":
+            afisare_angajati_dupa_senioritate()
+        elif optiune == "10":
+            afisare_angajati_dupa_departament()
+        elif optiune == "11":
+            print("Iesire din program.")
+            break
+        else:
+            print("Optiune invalida. Va rugam sa incercati din nou.")
+
+# Pornim programul
